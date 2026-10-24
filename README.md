@@ -182,7 +182,7 @@ commands are in [Verify](#verify).
   `strict-inference`, `strict-raw-types`) and extra rules (`unawaited_futures`,
   `cancel_subscriptions`, `close_sinks`, `always_use_package_imports`,
   `directives_ordering`, …) in `analysis_options.yaml`.
-- **CI** (`.github/workflows/ci.yml`): format check, `flutter analyze
+- **CI** (`.github/workflows/dart.yml`): format check, `flutter analyze
   --fatal-infos`, `flutter test --exclude-tags golden --coverage` on Ubuntu.
 - **Commits**: Conventional Commits, for example
   `feat(isolate-counter): add pause and resume`.
