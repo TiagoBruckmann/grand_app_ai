@@ -1,0 +1,43 @@
+{
+  "app": {
+    "title": "Desafio Grand App"
+  },
+  "nav": {
+    "echo_text": "Eco",
+    "isolate_counter": "Isolates"
+  },
+  "echo_text": {
+    "title": "Eco de texto",
+    "empty_label": "Seu texto aparecerá aqui",
+    "input_label": "Texto",
+    "input_hint": "Digite algo",
+    "submit": "Mostrar texto"
+  },
+  "isolate_counter": {
+    "title": "Contador com isolates",
+    "empty_label": "Toque em Iniciar",
+    "current_value": "Número atual: {value}",
+    "start": "Iniciar",
+    "pause": "Pausar",
+    "resume": "Retomar",
+    "stop": "Parar e reiniciar",
+    "interval_label": "Intervalo: {ms} ms",
+    "limit_label": "Contar até",
+    "limit_error": "Informe um número de {min} a {max}",
+    "parity": {
+      "odd": "Isolate ímpar",
+      "even": "Isolate par"
+    },
+    "status": {
+      "idle": "Parado",
+      "running": "Executando",
+      "paused": "Pausado",
+      "finished": "Concluído",
+      "failed": "Falhou"
+    },
+    "error": {
+      "spawn_failed": "Não foi possível iniciar os isolates.",
+      "worker_crashed": "Um isolate parou inesperadamente."
+    }
+  }
+}

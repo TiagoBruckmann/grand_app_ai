@@ -1,0 +1,43 @@
+{
+  "app": {
+    "title": "Grand App Challenge"
+  },
+  "nav": {
+    "echo_text": "Echo",
+    "isolate_counter": "Isolates"
+  },
+  "echo_text": {
+    "title": "Echo text",
+    "empty_label": "Your text will appear here",
+    "input_label": "Text",
+    "input_hint": "Type something",
+    "submit": "Show text"
+  },
+  "isolate_counter": {
+    "title": "Isolate counter",
+    "empty_label": "Press Start",
+    "current_value": "Current number: {value}",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop and reset",
+    "interval_label": "Interval: {ms} ms",
+    "limit_label": "Count up to",
+    "limit_error": "Enter a number from {min} to {max}",
+    "parity": {
+      "odd": "Odd isolate",
+      "even": "Even isolate"
+    },
+    "status": {
+      "idle": "Idle",
+      "running": "Running",
+      "paused": "Paused",
+      "finished": "Finished",
+      "failed": "Failed"
+    },
+    "error": {
+      "spawn_failed": "Could not start the worker isolates.",
+      "worker_crashed": "A worker isolate stopped unexpectedly."
+    }
+  }
+}

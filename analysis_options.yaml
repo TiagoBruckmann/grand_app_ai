@@ -1,0 +1,75 @@
+include: package:flutter_lints/flutter.yaml
+
+formatter:
+  page_width: 80
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - .claude/**
+    - "**/*.g.dart"
+
+  errors:
+    missing_required_param: error
+    missing_return: error
+    must_be_immutable: error
+    invalid_use_of_protected_member: error
+    invalid_use_of_visible_for_testing_member: error
+    todo: ignore
+
+linter:
+  rules:
+    # ---------- STYLE & Organization (dart_style, flutter_style) ----------
+    prefer_single_quotes: true
+    always_declare_return_types: true
+    directives_ordering: true
+    always_use_package_imports: true
+    eol_at_end_of_file: true
+    flutter_style_todos: true
+    unnecessary_lambdas: true
+    sort_constructors_first: true
+    sort_unnamed_constructors_first: true
+
+    # ---------- Immutable & const ----------
+    prefer_final_locals: true
+    prefer_final_in_for_each: true
+    prefer_final_fields: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+
+    # ---------- Async, Streams & Futures ----------
+    unawaited_futures: true
+    avoid_void_async: true
+    avoid_slow_async_io: true
+    cancel_subscriptions: true
+    close_sinks: true
+    use_build_context_synchronously: true
+
+    # ---------- Error handling ----------
+    avoid_catches_without_on_clauses: false
+    only_throw_errors: true
+    use_rethrow_when_possible: true
+    avoid_returning_null_for_void: true
+
+    # ---------- Type safety ----------
+    avoid_dynamic_calls: true
+    avoid_positional_boolean_parameters: true
+
+    # ---------- Dart moderno e limpeza ----------
+    use_super_parameters: true
+    use_enums: true
+    prefer_null_aware_method_calls: true
+    unnecessary_breaks: true
+    avoid_redundant_argument_values: true
+    avoid_print: true
+    unnecessary_parenthesis: true
+    unnecessary_statements: true
