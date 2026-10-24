@@ -23,14 +23,17 @@
   - `void onInputChanged(String value)`
   - `void submit()` — trims, ignores blank, updates `echoedText`
   - Holds the current input as a `String`, not a controller.
-- `EchoTextScreen` (StatefulWidget) owns the `TextEditingController` and
-  `FocusNode`, forwards changes to the ViewModel, clears the controller after a
-  successful submit, keeps focus on the field.
+- `EchoTextScreen` (StatefulWidget) owns the `TextEditingController`,
+  forwards changes to the ViewModel and clears the controller
+  after a successful submit. Focus is not forced back to the field, so the
+  keyboard closes after Done, as is usual on mobile.
 - Label wrapped in `Semantics(liveRegion: true)` so screen readers announce it.
 - Adaptive: Material `TextField` + `FilledButton` on Android;
   `CupertinoTextField` + `CupertinoButton.filled` look on iOS (via
   `core/widgets/adaptive`).
-- `textInputAction: TextInputAction.done`; `maxLines: 1`.
+- `textInputAction: TextInputAction.done`; the input starts at one line and
+  grows up to 5 (`minLines: 1`, `maxLines: 5`), then scrolls internally, so
+  long text stays readable while typing.
 - Long text wraps in the label (no overflow, no ellipsis).
 
 ## Keys (`EchoTextKeys`)

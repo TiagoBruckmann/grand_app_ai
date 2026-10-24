@@ -25,6 +25,23 @@ void main() {
 
   String labelText(WidgetTester tester) => textOf(tester, EchoTextKeys.label);
 
+  double inputHeight(WidgetTester tester) => tester
+      .getSize(
+        find.descendant(
+          of: find.byKey(EchoTextKeys.input),
+          matching: find.byType(EditableText),
+        ),
+      )
+      .height;
+
+  Future<void> enterLines(WidgetTester tester, int count) async {
+    await tester.enterText(
+      find.byKey(EchoTextKeys.input),
+      List.generate(count, (index) => 'line $index').join('\n'),
+    );
+    await tester.pump();
+  }
+
   testWidgets('shows the placeholder and a disabled button initially', (
     tester,
   ) async {
@@ -105,6 +122,39 @@ void main() {
     expect(find.text('Mostrar texto'), findsOneWidget);
   }, variant: mobilePlatforms);
 
+  testWidgets('input grows beyond one line for multi-line text', (
+    tester,
+  ) async {
+    await pumpScreen(tester);
+    final singleLineHeight = inputHeight(tester);
+
+    await enterLines(tester, 3);
+
+    expect(inputHeight(tester), greaterThan(singleLineHeight));
+  }, variant: mobilePlatforms);
+
+  testWidgets('input stops growing at five lines', (tester) async {
+    await pumpScreen(tester);
+    await enterLines(tester, 5);
+    final fiveLinesHeight = inputHeight(tester);
+
+    await enterLines(tester, 10);
+
+    expect(inputHeight(tester), fiveLinesHeight);
+    expect(tester.takeException(), isNull);
+  }, variant: mobilePlatforms);
+
+  testWidgets('input shrinks back to one line after submit', (tester) async {
+    await pumpScreen(tester);
+    final singleLineHeight = inputHeight(tester);
+    await enterLines(tester, 3);
+
+    await tester.tap(find.byKey(EchoTextKeys.submit));
+    await tester.pump();
+
+    expect(inputHeight(tester), singleLineHeight);
+  }, variant: mobilePlatforms);
+
   testWidgets('long text wraps without overflow at 2x text scale', (
     tester,
   ) async {
@@ -112,14 +162,17 @@ void main() {
     addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
     await pumpScreen(tester);
 
-    await tester.enterText(
-      find.byKey(EchoTextKeys.input),
-      List.filled(30, 'word').join(' '),
-    );
+    final longText = List.filled(30, 'word').join(' ');
+    await tester.enterText(find.byKey(EchoTextKeys.input), longText);
+    await tester.pump();
+    // The multi-line input grows at 2x scale and pushes the button below
+    // the 800x600 test viewport, so scroll it into view before tapping.
+    await tester.ensureVisible(find.byKey(EchoTextKeys.submit));
     await tester.pump();
     await tester.tap(find.byKey(EchoTextKeys.submit));
     await tester.pump();
 
+    expect(labelText(tester), longText);
     expect(tester.takeException(), isNull);
   }, variant: mobilePlatforms);
 }

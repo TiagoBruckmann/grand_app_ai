@@ -8,7 +8,6 @@ class AdaptiveTextField extends StatelessWidget {
   const AdaptiveTextField({
     required this.label,
     this.controller,
-    this.focusNode,
     this.hint,
     this.errorText,
     this.onChanged,
@@ -17,12 +16,12 @@ class AdaptiveTextField extends StatelessWidget {
     this.keyboardType,
     this.inputFormatters,
     this.enabled = true,
+    this.maxLines = 1,
     super.key,
   });
 
   final String label;
   final TextEditingController? controller;
-  final FocusNode? focusNode;
   final String? hint;
   final String? errorText;
   final ValueChanged<String>? onChanged;
@@ -31,19 +30,21 @@ class AdaptiveTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
   final bool enabled;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
     if (!context.isCupertino) {
       return TextField(
         controller: controller,
-        focusNode: focusNode,
         onChanged: onChanged,
         onSubmitted: onSubmitted,
         textInputAction: textInputAction,
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
         enabled: enabled,
+        maxLines: maxLines,
+        minLines: 1,
         decoration: InputDecoration(
           labelText: label,
           hintText: hint,
@@ -71,7 +72,6 @@ class AdaptiveTextField extends StatelessWidget {
             ),
             child: CupertinoTextField(
               controller: controller,
-              focusNode: focusNode,
               onChanged: onChanged,
               onSubmitted: onSubmitted,
               textInputAction: textInputAction,
@@ -79,6 +79,8 @@ class AdaptiveTextField extends StatelessWidget {
               inputFormatters: inputFormatters,
               enabled: enabled,
               placeholder: hint,
+              maxLines: maxLines,
+              minLines: 1,
               padding: const EdgeInsets.all(AppSpacing.md - AppSpacing.xs),
             ),
           ),
