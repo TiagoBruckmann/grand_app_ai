@@ -18,7 +18,6 @@ class FakeCounterCoordinator implements CounterCoordinator {
   int pauseCalls = 0;
   int resumeCalls = 0;
   int stopCalls = 0;
-  bool disposed = false;
 
   bool get hasListener => _emissions.hasListener;
 
@@ -52,8 +51,5 @@ class FakeCounterCoordinator implements CounterCoordinator {
   Future<void> stop() async => stopCalls++;
 
   @override
-  Future<void> dispose() async {
-    disposed = true;
-    await _emissions.close();
-  }
+  Future<void> dispose() => _emissions.close();
 }
