@@ -34,7 +34,6 @@ class AdaptiveTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     if (!context.isCupertino) {
       return TextField(
         controller: controller,
@@ -60,11 +59,7 @@ class AdaptiveTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-
-        Text(
-          label,
-          style: theme.textTheme.labelLarge,
-        ),
+        Text(label, style: theme.textTheme.labelLarge),
 
         const SizedBox(height: AppSpacing.xs),
 
@@ -90,7 +85,6 @@ class AdaptiveTextField extends StatelessWidget {
         ),
 
         if (error != null) ...[
-
           const SizedBox(height: AppSpacing.xs),
 
           Text(
@@ -99,9 +93,7 @@ class AdaptiveTextField extends StatelessWidget {
               color: theme.colorScheme.error,
             ),
           ),
-
         ],
-
       ],
     );
   }

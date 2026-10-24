@@ -11,7 +11,6 @@ abstract final class AppTheme {
   // `platform` is intentionally left null so the theme follows the device
   // and `TargetPlatformVariant` can override it in tests.
   static ThemeData _build(Brightness brightness) {
-
     final colorScheme = ColorScheme.fromSeed(
       seedColor: _seed,
       brightness: brightness,

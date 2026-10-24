@@ -101,7 +101,9 @@ void main() {
 
       await viewModel.stop();
       gate.complete(
-        const Result<void>.error(CounterSpawnFailed(ParityEnum.odd, 'too late')),
+        const Result<void>.error(
+          CounterSpawnFailed(ParityEnum.odd, 'too late'),
+        ),
       );
       await starting;
 
@@ -149,7 +151,9 @@ void main() {
     test('a stream error marks the run as failed', () async {
       await viewModel.start();
 
-      coordinator.emitError(const CounterWorkerCrashed(ParityEnum.even, 'boom'));
+      coordinator.emitError(
+        const CounterWorkerCrashed(ParityEnum.even, 'boom'),
+      );
 
       expect(viewModel.status, CounterStatusEnum.failed);
       expect(viewModel.failure, isA<CounterWorkerCrashed>());

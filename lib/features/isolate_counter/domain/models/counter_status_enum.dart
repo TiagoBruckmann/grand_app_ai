@@ -1,7 +1,1 @@
-enum CounterStatusEnum {
-  idle,
-  running,
-  paused,
-  finished,
-  failed,
-}
+enum CounterStatusEnum { idle, running, paused, finished, failed }

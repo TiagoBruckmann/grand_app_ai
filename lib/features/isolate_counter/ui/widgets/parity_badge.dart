@@ -43,11 +43,7 @@ class ParityBadge extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-
-            Icon(
-              icon,
-              color: foreground,
-            ),
+            Icon(icon, color: foreground),
 
             const SizedBox(width: AppSpacing.sm),
 
@@ -57,7 +53,6 @@ class ParityBadge extends StatelessWidget {
                 style: theme.textTheme.labelLarge?.copyWith(color: foreground),
               ),
             ),
-
           ],
         ),
       ),

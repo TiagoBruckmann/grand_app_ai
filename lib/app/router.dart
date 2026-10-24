@@ -20,7 +20,6 @@ GoRouter createRouter() => GoRouter(
       branches: [
         StatefulShellBranch(
           routes: [
-
             GoRoute(
               path: AppRoutes.echoText,
               builder: (context, state) => ChangeNotifierProvider(
@@ -28,12 +27,10 @@ GoRouter createRouter() => GoRouter(
                 child: const EchoTextScreen(),
               ),
             ),
-
           ],
         ),
         StatefulShellBranch(
           routes: [
-
             GoRoute(
               path: AppRoutes.isolateCounter,
               builder: (context, state) => ChangeNotifierProvider(
@@ -42,7 +39,6 @@ GoRouter createRouter() => GoRouter(
                 child: const IsolateCounterScreen(),
               ),
             ),
-
           ],
         ),
       ],

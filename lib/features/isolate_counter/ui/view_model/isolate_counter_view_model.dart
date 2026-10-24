@@ -50,7 +50,8 @@ class IsolateCounterViewModel extends ChangeNotifier {
   bool get isLimitValid => limit != null;
 
   bool get _isActive =>
-      _status == CounterStatusEnum.running || _status == CounterStatusEnum.paused;
+      _status == CounterStatusEnum.running ||
+      _status == CounterStatusEnum.paused;
 
   bool get canEditLimit => !_isActive;
   bool get canStart => !_isActive && isLimitValid;
@@ -120,7 +121,9 @@ class IsolateCounterViewModel extends ChangeNotifier {
       case CounterStatusEnum.paused:
         _coordinator.resume();
         _status = CounterStatusEnum.running;
-      case CounterStatusEnum.idle || CounterStatusEnum.finished || CounterStatusEnum.failed:
+      case CounterStatusEnum.idle ||
+          CounterStatusEnum.finished ||
+          CounterStatusEnum.failed:
         return;
     }
 

@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:grand_app_ia_challange1/core/i18n/i18n_keys.dart';
@@ -32,7 +33,6 @@ class CounterControls extends StatelessWidget {
       spacing: AppSpacing.sm,
       runSpacing: AppSpacing.sm,
       children: [
-
         AdaptiveButton(
           key: IsolateCounterKeys.start,
           label: FlutterI18n.translate(context, I18nKeys.isolateCounterStart),
@@ -66,7 +66,6 @@ class CounterControls extends StatelessWidget {
               ? () => unawaited(context.read<IsolateCounterViewModel>().stop())
               : null,
         ),
-
       ],
     );
   }

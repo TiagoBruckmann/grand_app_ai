@@ -31,11 +31,7 @@ class IntervalSlider extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-
-        Text(
-          label,
-          style: Theme.of(context).textTheme.labelLarge,
-        ),
+        Text(label, style: Theme.of(context).textTheme.labelLarge),
 
         Semantics(
           label: label,
@@ -52,7 +48,6 @@ class IntervalSlider extends StatelessWidget {
                 : null,
           ),
         ),
-
       ],
     );
   }

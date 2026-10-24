@@ -56,10 +56,7 @@ class _EchoTextScreenState extends State<EchoTextScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-
-            EchoLabel(
-              text: echoedText,
-            ),
+            EchoLabel(text: echoedText),
 
             const SizedBox(height: AppSpacing.lg),
 
@@ -86,7 +83,6 @@ class _EchoTextScreenState extends State<EchoTextScreen> {
               icon: Icons.send,
               onPressed: canSubmit ? _submit : null,
             ),
-
           ],
         ),
       ),
