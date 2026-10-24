@@ -19,7 +19,6 @@ class EchoTextScreen extends StatefulWidget {
 
 class _EchoTextScreenState extends State<EchoTextScreen> {
   final _controller = TextEditingController();
-  final _focusNode = FocusNode();
 
   void _submit() {
     final viewModel = context.read<EchoTextViewModel>();
@@ -29,13 +28,11 @@ class _EchoTextScreenState extends State<EchoTextScreen> {
 
     viewModel.submit();
     _controller.clear();
-    _focusNode.requestFocus();
   }
 
   @override
   void dispose() {
     _controller.dispose();
-    _focusNode.dispose();
     super.dispose();
   }
 
@@ -56,17 +53,14 @@ class _EchoTextScreenState extends State<EchoTextScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-
-            EchoLabel(
-              text: echoedText,
-            ),
+            EchoLabel(text: echoedText),
 
             const SizedBox(height: AppSpacing.lg),
 
             AdaptiveTextField(
               key: EchoTextKeys.input,
               controller: _controller,
-              focusNode: _focusNode,
+              maxLines: 5,
               label: FlutterI18n.translate(
                 context,
                 I18nKeys.echoTextInputLabel,
@@ -86,7 +80,6 @@ class _EchoTextScreenState extends State<EchoTextScreen> {
               icon: Icons.send,
               onPressed: canSubmit ? _submit : null,
             ),
-
           ],
         ),
       ),

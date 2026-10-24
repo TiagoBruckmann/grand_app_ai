@@ -39,7 +39,6 @@ class StatusText extends StatelessWidget {
 
     return Column(
       children: [
-
         Text(
           FlutterI18n.translate(context, statusKey),
           key: IsolateCounterKeys.status,
@@ -48,7 +47,6 @@ class StatusText extends StatelessWidget {
         ),
 
         if (failureKey != null) ...[
-
           const SizedBox(height: AppSpacing.xs),
 
           Text(
@@ -58,9 +56,7 @@ class StatusText extends StatelessWidget {
               color: theme.colorScheme.error,
             ),
           ),
-
         ],
-
       ],
     );
   }

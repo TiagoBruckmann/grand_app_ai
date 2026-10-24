@@ -24,7 +24,6 @@ class IsolateCounterScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-
             CounterDisplay(),
 
             SizedBox(height: AppSpacing.md),
@@ -42,7 +41,6 @@ class IsolateCounterScreen extends StatelessWidget {
             SizedBox(height: AppSpacing.md),
 
             LimitField(),
-
           ],
         ),
       ),

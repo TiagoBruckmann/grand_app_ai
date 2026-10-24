@@ -20,7 +20,10 @@ class CounterDisplay extends StatelessWidget {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
 
-    String text = FlutterI18n.translate(context, I18nKeys.isolateCounterEmptyLabel);
+    String text = FlutterI18n.translate(
+      context,
+      I18nKeys.isolateCounterEmptyLabel,
+    );
     String semanticsLabel = text;
     TextStyle? style = theme.textTheme.headlineSmall?.copyWith(
       color: colorScheme.onSurfaceVariant,
@@ -46,7 +49,6 @@ class CounterDisplay extends StatelessWidget {
       ),
       child: Column(
         children: [
-
           Semantics(
             liveRegion: true,
             label: semanticsLabel,
@@ -64,7 +66,6 @@ class CounterDisplay extends StatelessWidget {
 
             ParityBadge(parity: current.parity),
           ],
-
         ],
       ),
     );

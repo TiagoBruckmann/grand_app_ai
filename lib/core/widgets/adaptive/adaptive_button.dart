@@ -66,7 +66,6 @@ class _ButtonContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final text = Text(label, textAlign: TextAlign.center);
     final icon = this.icon;
     if (icon == null) {
@@ -76,13 +75,11 @@ class _ButtonContent extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-
         Icon(icon),
 
         const SizedBox(width: AppSpacing.sm),
 
         Flexible(child: text),
-
       ],
     );
   }

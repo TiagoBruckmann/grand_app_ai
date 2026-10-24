@@ -36,20 +36,16 @@ class AppShell extends StatelessWidget {
               currentIndex: navigationShell.currentIndex,
               onTap: _onSelected,
               items: [
-
                 for (final (icon, label) in destinations)
                   BottomNavigationBarItem(icon: Icon(icon), label: label),
-
               ],
             )
           : NavigationBar(
               selectedIndex: navigationShell.currentIndex,
               onDestinationSelected: _onSelected,
               destinations: [
-
                 for (final (icon, label) in destinations)
                   NavigationDestination(icon: Icon(icon), label: label),
-
               ],
             ),
     );
